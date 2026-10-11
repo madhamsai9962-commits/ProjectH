@@ -1,0 +1,36 @@
+
+name: Hotel Booking CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    name: Build and Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Run tests
+        run: npm test
+
+      - name: Build website
+        run: |
+          mkdir -p dist
+          cp index.html style.css script.js dist/
+          test -s dist/index.html
+          test -s dist/style.css
+          test -s dist/script.js
