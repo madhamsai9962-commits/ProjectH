@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore rooms and book your stay at Grand Palace Hotel.">
+  <title>Grand Palace Hotel | Room Booking</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <header class="navbar">
+    <a class="logo" href="#">Grand Palace</a>
+    <nav>
+      <a href="#rooms">Rooms</a>
+      <a href="#booking">Book a Room</a>
+      <a href="#bookings">My Bookings</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">WELCOME TO GRAND PALACE</p>
+        <h1>Your perfect stay<br>starts here.</h1>
+        <p>Comfort, luxury, and memorable experiences.</p>
+        <a class="btn" href="#rooms">Explore Our Rooms</a>
+      </div>
+    </section>
+
+    <section id="rooms" class="section">
+      <p class="eyebrow">STAY IN COMFORT</p>
+      <h2>Our Rooms</h2>
+      <div class="room-grid">
+        <article class="room-card">
+          <div class="room-image standard" role="img" aria-label="Standard room"></div>
+          <div class="room-info">
+            <h3>Standard Room</h3>
+            <p>Cozy accommodation for solo travelers and couples.</p>
+            <p class="price">₹2,000 <span>/ night</span></p>
+            <button class="btn book-room" data-room="Standard Room">Book Now</button>
+          </div>
+        </article>
+
+        <article class="room-card">
+          <div class="room-image deluxe" role="img" aria-label="Deluxe room"></div>
+          <div class="room-info">
+            <h3>Deluxe Room</h3>
+            <p>Extra space and comfort for a relaxing getaway.</p>
+            <p class="price">₹3,500 <span>/ night</span></p>
+            <button class="btn book-room" data-room="Deluxe Room">Book Now</button>
+          </div>
+        </article>
+
+        <article class="room-card">
+          <div class="room-image suite" role="img" aria-label="Luxury suite"></div>
+          <div class="room-info">
+            <h3>Luxury Suite</h3>
+            <p>A premium stay with elegant interiors and space.</p>
+            <p class="price">₹5,000 <span>/ night</span></p>
+            <button class="btn book-room" data-room="Luxury Suite">Book Now</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="booking" class="section booking-section">
+      <p class="eyebrow">RESERVE YOUR STAY</p>
+      <h2>Room Booking</h2>
+      <form id="booking-form">
+        <label for="guest">Guest Name</label>
+        <input id="guest" name="guest" type="text"
+               placeholder="Enter your full name" required maxlength="80">
+
+        <label for="email">Email Address</label>
+        <input id="email" name="email" type="email"
+               placeholder="you@example.com" required>
+
+        <label for="room">Choose Room</label>
+        <select id="room" name="room" required>
+          <option value="">Select a room</option>
+          <option value="Standard Room">Standard Room — ₹2,000/night</option>
+          <option value="Deluxe Room">Deluxe Room — ₹3,500/night</option>
+          <option value="Luxury Suite">Luxury Suite — ₹5,000/night</option>
+        </select>
+
+        <div class="date-grid">
+          <div>
+            <label for="checkin">Check-in</label>
+            <input id="checkin" name="checkin" type="date" required>
+          </div>
+          <div>
+            <label for="checkout">Check-out</label>
+            <input id="checkout" name="checkout" type="date" required>
+          </div>
+        </div>
+
+        <label for="guests">Number of Guests</label>
+        <input id="guests" name="guests" type="number"
+               min="1" max="6" value="1" required>
+
+        <div id="estimate" class="estimate" aria-live="polite">
+          Select your dates to calculate the estimated total.
+        </div>
+
+        <button class="btn submit-btn" type="submit">Confirm Booking</button>
+        <p class="note">Demo only: no payment is collected and room availability is not verified.</p>
+      </form>
+      <div id="message" role="status" aria-live="polite"></div>
+    </section>
+
+    <section id="bookings" class="section">
+      <p class="eyebrow">YOUR RESERVATIONS</p>
+      <h2>My Bookings</h2>
+      <div id="booking-list"></div>
+      <button id="clear-bookings" class="btn secondary" type="button">
+        Clear Demo Bookings
+      </button>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Grand Palace Hotel. Student project demo.</p>
+  </footer>
+</body>
+</html>
